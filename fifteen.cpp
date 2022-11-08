@@ -19,30 +19,18 @@ class String1 {
         str = new char[length + 1];
     }
 
-    int get_length() {
-        return length;
-    }
-
-    void set_char(int index, char c) {
-        this->str[index] = c;
-    }
-
-    char get_char(int index) {
-        return str[index];
-    }
-
     void print() {
         cout << str << endl;
     }
 
     String1 concat(String1 &s2) {
-        String1 answer(this->length + s2.get_length());
+        String1 answer(this->length + s2.length);
 
         for(int i = 0; i < length; i++)
-            answer.set_char(i, str[i]);
+            answer.str[i] = str[i];
 
-        for(int i = 0; i < s2.get_length(); i++)
-            answer.set_char(i + length, s2.get_char(i));
+        for(int i = 0; i < s2.length; i++)
+            answer.str[i + length] = s2.str[i];
 
         return answer;
     }
